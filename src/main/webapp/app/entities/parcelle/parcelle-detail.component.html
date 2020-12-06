@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="parcelle">
+            <h2><span>Parcelle</span> {{ parcelle.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Num Section</span></dt>
+                <dd>
+                    <span>{{ parcelle.numSection }}</span>
+                </dd>
+                <dt><span>Numero Parcelle</span></dt>
+                <dd>
+                    <span>{{ parcelle.numeroParcelle }}</span>
+                </dd>
+                <dt><span>Nicad</span></dt>
+                <dd>
+                    <span>{{ parcelle.nicad }}</span>
+                </dd>
+                <dt><span>Superfici</span></dt>
+                <dd>
+                    <span>{{ parcelle.superfici }}</span>
+                </dd>
+                <dt><span>Titre Mere</span></dt>
+                <dd>
+                    <span>{{ parcelle.titreMere }}</span>
+                </dd>
+                <dt><span>Titre Cree</span></dt>
+                <dd>
+                    <span>{{ parcelle.titreCree }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/parcelle', parcelle.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

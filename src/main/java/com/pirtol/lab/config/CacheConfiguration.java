@@ -47,6 +47,35 @@ public class CacheConfiguration {
             createCache(cm, com.pirtol.lab.domain.User.class.getName());
             createCache(cm, com.pirtol.lab.domain.Authority.class.getName());
             createCache(cm, com.pirtol.lab.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.pirtol.lab.domain.Dossier.class.getName());
+            createCache(cm, com.pirtol.lab.domain.Dossier.class.getName() + ".categorieBaties");
+            createCache(cm, com.pirtol.lab.domain.Dossier.class.getName() + ".categoriteClotures");
+            createCache(cm, com.pirtol.lab.domain.Dossier.class.getName() + ".categorieClotures");
+            createCache(cm, com.pirtol.lab.domain.Dossier.class.getName() + ".parcelles");
+            createCache(cm, com.pirtol.lab.domain.Region.class.getName());
+            createCache(cm, com.pirtol.lab.domain.Region.class.getName() + ".departements");
+            createCache(cm, com.pirtol.lab.domain.Departement.class.getName());
+            createCache(cm, com.pirtol.lab.domain.Departement.class.getName() + ".arrondissements");
+            createCache(cm, com.pirtol.lab.domain.Arrondissement.class.getName());
+            createCache(cm, com.pirtol.lab.domain.Arrondissement.class.getName() + ".communes");
+            createCache(cm, com.pirtol.lab.domain.Commune.class.getName());
+            createCache(cm, com.pirtol.lab.domain.Commune.class.getName() + ".quartiers");
+            createCache(cm, com.pirtol.lab.domain.Quartier.class.getName());
+            createCache(cm, com.pirtol.lab.domain.Quartier.class.getName() + ".lotissements");
+            createCache(cm, com.pirtol.lab.domain.Lotissement.class.getName());
+            createCache(cm, com.pirtol.lab.domain.Lotissement.class.getName() + ".lotissements");
+            createCache(cm, com.pirtol.lab.domain.Nature.class.getName());
+            createCache(cm, com.pirtol.lab.domain.Nature.class.getName() + ".dossiers");
+            createCache(cm, com.pirtol.lab.domain.Usage.class.getName());
+            createCache(cm, com.pirtol.lab.domain.Usage.class.getName() + ".dossiers");
+            createCache(cm, com.pirtol.lab.domain.Activite.class.getName());
+            createCache(cm, com.pirtol.lab.domain.Activite.class.getName() + ".dossiers");
+            createCache(cm, com.pirtol.lab.domain.Parcelle.class.getName());
+            createCache(cm, com.pirtol.lab.domain.Parcelle.class.getName() + ".dossiers");
+            createCache(cm, com.pirtol.lab.domain.Proprietaire.class.getName());
+            createCache(cm, com.pirtol.lab.domain.Proprietaire.class.getName() + ".dossiers");
+            createCache(cm, com.pirtol.lab.domain.CategorieBatie.class.getName());
+            createCache(cm, com.pirtol.lab.domain.CategorieCloture.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

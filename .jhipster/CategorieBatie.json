@@ -1,0 +1,33 @@
+{
+  "name": "CategorieBatie",
+  "fields": [
+    {
+      "fieldName": "libelle",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "prixMetreCare",
+      "fieldType": "Double"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "dossier",
+      "otherEntityRelationshipName": "categorieBatie",
+      "relationshipName": "dossier",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20201206162648",
+  "entityTableName": "categorie_batie",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}
