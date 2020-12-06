@@ -1,0 +1,108 @@
+
+entity Dossier {
+	numero String,
+    montantLoyer Double,
+    superficieBatie Double,
+    coeffCorrectifBatie Double,
+    valeurBatie Double,
+    lineaireCloture Double,
+    coeffCloture Double,
+    valeurCloture Double,
+    amenagementSpaciaux String,
+    valeurAmenagement Double,
+    valeurVenale Double,
+    valeurLocativ String,
+    paysAdresse String,
+    villeAdresse String
+}
+
+entity Region{
+	code String,
+    libelle String
+}
+entity Departement{
+	code String,
+    libelle String
+}
+entity Arrondissement{
+	code String,
+    libelle String
+}
+entity Commune{
+	code String,
+    libelle String
+}
+entity Quartier{
+	code String,
+    libelle String
+}
+entity Lotissement{
+	code String,
+    libelle String
+}
+entity Nature{
+	code String,
+    libelle String
+}
+entity Usage{
+	code String,
+    libelle String
+}
+entity Activite{
+	code String,
+    libelle String
+}
+entity Parcelle{
+	numSection String,
+    numeroParcelle String,
+    nicad String,
+    superfici Double,
+    titreMere String,
+    titreCree String
+}
+entity Proprietaire{
+	prenom String,
+    nom String,
+    raisonSocial String,
+    personneMorale Boolean,
+    lieuNaissance String,
+    numCNIi String,
+    ninea String,
+    adresse String,
+    telephone String
+    telephone2 String
+    telephone3 String,
+    aquisition String
+}
+
+entity CategorieBatie{
+	libelle String,
+    prixMetreCare Double
+}
+
+entity CategorieCloture{
+	libelle String,
+    prixMetreCare Double
+}
+relationship OneToMany{
+	Dossier{categorieBatie} to CategorieBatie{dossier},    
+	Dossier{categoriteCloture} to CategorieCloture{dossier},    
+	Dossier{categorieCloture} to CategorieCloture{dossier},
+    Lotissement{lotissement} to Dossier{dossier},
+    Nature{dossier} to Dossier{nature},
+    Activite{dossier} to Dossier{activite},
+    Usage{dossier} to Dossier{usage},
+    Region{departement} to Departement{region},
+    Departement{arrondissement} to Arrondissement{departement},
+    Arrondissement{commune} to Commune{arrondissement},
+    Commune{quartier} to Quartier{communune},
+    Quartier{lotissement} to Lotissement{quartier},
+    Proprietaire{dossier} to Dossier{proprietaire}
+}
+
+relationship ManyToMany{
+    Dossier{parcelle} to Parcelle
+}
+paginate all with pagination
+service all with serviceImpl
+dto all with mapstruct
