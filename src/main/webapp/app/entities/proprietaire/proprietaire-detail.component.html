@@ -1,0 +1,74 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="proprietaire">
+            <h2><span>Proprietaire</span> {{ proprietaire.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Prenom</span></dt>
+                <dd>
+                    <span>{{ proprietaire.prenom }}</span>
+                </dd>
+                <dt><span>Nom</span></dt>
+                <dd>
+                    <span>{{ proprietaire.nom }}</span>
+                </dd>
+                <dt><span>Raison Social</span></dt>
+                <dd>
+                    <span>{{ proprietaire.raisonSocial }}</span>
+                </dd>
+                <dt><span>Personne Morale</span></dt>
+                <dd>
+                    <span>{{ proprietaire.personneMorale }}</span>
+                </dd>
+                <dt><span>Lieu Naissance</span></dt>
+                <dd>
+                    <span>{{ proprietaire.lieuNaissance }}</span>
+                </dd>
+                <dt><span>Num CN Ii</span></dt>
+                <dd>
+                    <span>{{ proprietaire.numCNIi }}</span>
+                </dd>
+                <dt><span>Ninea</span></dt>
+                <dd>
+                    <span>{{ proprietaire.ninea }}</span>
+                </dd>
+                <dt><span>Adresse</span></dt>
+                <dd>
+                    <span>{{ proprietaire.adresse }}</span>
+                </dd>
+                <dt><span>Telephone</span></dt>
+                <dd>
+                    <span>{{ proprietaire.telephone }}</span>
+                </dd>
+                <dt><span>Telephone 2</span></dt>
+                <dd>
+                    <span>{{ proprietaire.telephone2 }}</span>
+                </dd>
+                <dt><span>Telephone 3</span></dt>
+                <dd>
+                    <span>{{ proprietaire.telephone3 }}</span>
+                </dd>
+                <dt><span>Aquisition</span></dt>
+                <dd>
+                    <span>{{ proprietaire.aquisition }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/proprietaire', proprietaire.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

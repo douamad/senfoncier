@@ -1,0 +1,40 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="categorieBatie">
+            <h2><span>Categorie Batie</span> {{ categorieBatie.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Libelle</span></dt>
+                <dd>
+                    <span>{{ categorieBatie.libelle }}</span>
+                </dd>
+                <dt><span>Prix Metre Care</span></dt>
+                <dd>
+                    <span>{{ categorieBatie.prixMetreCare }}</span>
+                </dd>
+                <dt><span>Dossier</span></dt>
+                <dd>
+                    <div *ngIf="categorieBatie.dossierId">
+                        <a [routerLink]="['/dossier', categorieBatie.dossierId, 'view']">{{ categorieBatie.dossierId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/categorie-batie', categorieBatie.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

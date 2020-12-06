@@ -1,0 +1,157 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-dossier-heading">Create or edit a Dossier</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_numero">Numero</label>
+                    <input type="text" class="form-control" name="numero" id="field_numero"
+                           formControlName="numero"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_montantLoyer">Montant Loyer</label>
+                    <input type="number" class="form-control" name="montantLoyer" id="field_montantLoyer"
+                           formControlName="montantLoyer"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_superficieBatie">Superficie Batie</label>
+                    <input type="number" class="form-control" name="superficieBatie" id="field_superficieBatie"
+                           formControlName="superficieBatie"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_coeffCorrectifBatie">Coeff Correctif Batie</label>
+                    <input type="number" class="form-control" name="coeffCorrectifBatie" id="field_coeffCorrectifBatie"
+                           formControlName="coeffCorrectifBatie"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_valeurBatie">Valeur Batie</label>
+                    <input type="number" class="form-control" name="valeurBatie" id="field_valeurBatie"
+                           formControlName="valeurBatie"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_lineaireCloture">Lineaire Cloture</label>
+                    <input type="number" class="form-control" name="lineaireCloture" id="field_lineaireCloture"
+                           formControlName="lineaireCloture"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_coeffCloture">Coeff Cloture</label>
+                    <input type="number" class="form-control" name="coeffCloture" id="field_coeffCloture"
+                           formControlName="coeffCloture"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_valeurCloture">Valeur Cloture</label>
+                    <input type="number" class="form-control" name="valeurCloture" id="field_valeurCloture"
+                           formControlName="valeurCloture"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_amenagementSpaciaux">Amenagement Spaciaux</label>
+                    <input type="text" class="form-control" name="amenagementSpaciaux" id="field_amenagementSpaciaux"
+                           formControlName="amenagementSpaciaux"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_valeurAmenagement">Valeur Amenagement</label>
+                    <input type="number" class="form-control" name="valeurAmenagement" id="field_valeurAmenagement"
+                           formControlName="valeurAmenagement"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_valeurVenale">Valeur Venale</label>
+                    <input type="number" class="form-control" name="valeurVenale" id="field_valeurVenale"
+                           formControlName="valeurVenale"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_valeurLocativ">Valeur Locativ</label>
+                    <input type="text" class="form-control" name="valeurLocativ" id="field_valeurLocativ"
+                           formControlName="valeurLocativ"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_paysAdresse">Pays Adresse</label>
+                    <input type="text" class="form-control" name="paysAdresse" id="field_paysAdresse"
+                           formControlName="paysAdresse"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_villeAdresse">Ville Adresse</label>
+                    <input type="text" class="form-control" name="villeAdresse" id="field_villeAdresse"
+                           formControlName="villeAdresse"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="field_parcelles">Parcelle</label>
+                    <select class="form-control" id="field_parcelles" multiple name="parcelles" formControlName="parcelles">
+                        <option [ngValue]="getSelected(editForm.get('parcelles')!.value, parcelleOption)" *ngFor="let parcelleOption of parcelles; trackBy: trackById">{{ parcelleOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_dossier">Dossier</label>
+                    <select class="form-control" id="field_dossier" name="dossier" formControlName="dossierId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="lotissementOption.id" *ngFor="let lotissementOption of lotissements; trackBy: trackById">{{ lotissementOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_nature">Nature</label>
+                    <select class="form-control" id="field_nature" name="nature" formControlName="natureId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="natureOption.id" *ngFor="let natureOption of natures; trackBy: trackById">{{ natureOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_activite">Activite</label>
+                    <select class="form-control" id="field_activite" name="activite" formControlName="activiteId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="activiteOption.id" *ngFor="let activiteOption of activites; trackBy: trackById">{{ activiteOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_usage">Usage</label>
+                    <select class="form-control" id="field_usage" name="usage" formControlName="usageId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="usageOption.id" *ngFor="let usageOption of usages; trackBy: trackById">{{ usageOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_proprietaire">Proprietaire</label>
+                    <select class="form-control" id="field_proprietaire" name="proprietaire" formControlName="proprietaireId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="proprietaireOption.id" *ngFor="let proprietaireOption of proprietaires; trackBy: trackById">{{ proprietaireOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+{
+  "name": "Nature",
+  "fields": [
+    {
+      "fieldName": "code",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "libelle",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "dossier",
+      "otherEntityRelationshipName": "nature",
+      "relationshipName": "dossier"
+    }
+  ],
+  "changelogDate": "20201206162742",
+  "entityTableName": "nature",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

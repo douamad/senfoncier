@@ -1,0 +1,129 @@
+{
+  "name": "Dossier",
+  "fields": [
+    {
+      "fieldName": "numero",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "montantLoyer",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "superficieBatie",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "coeffCorrectifBatie",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "valeurBatie",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "lineaireCloture",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "coeffCloture",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "valeurCloture",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "amenagementSpaciaux",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "valeurAmenagement",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "valeurVenale",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "valeurLocativ",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "paysAdresse",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "villeAdresse",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "categorieBatie",
+      "otherEntityRelationshipName": "dossier",
+      "relationshipName": "categorieBatie"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "categorieCloture",
+      "otherEntityRelationshipName": "dossier",
+      "relationshipName": "categoriteCloture"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "parcelle",
+      "otherEntityRelationshipName": "dossier",
+      "relationshipName": "parcelle",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "lotissement",
+      "otherEntityRelationshipName": "lotissement",
+      "relationshipName": "dossier",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "nature",
+      "otherEntityRelationshipName": "dossier",
+      "relationshipName": "nature",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "activite",
+      "otherEntityRelationshipName": "dossier",
+      "relationshipName": "activite",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "usage",
+      "otherEntityRelationshipName": "dossier",
+      "relationshipName": "usage",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "proprietaire",
+      "otherEntityRelationshipName": "dossier",
+      "relationshipName": "proprietaire",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20201206162042",
+  "entityTableName": "dossier",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

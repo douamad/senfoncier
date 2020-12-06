@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity Dossier.
+    -->
+    <changeSet id="20201206162042-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="dossier_id"
+                                 baseTableName="dossier_parcelle"
+                                 constraintName="fk_dossier_parcelle_dossier_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="dossier"/>
+
+        <addForeignKeyConstraint baseColumnNames="parcelle_id"
+                                 baseTableName="dossier_parcelle"
+                                 constraintName="fk_dossier_parcelle_parcelle_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="parcelle"/>
+        
+        <addForeignKeyConstraint baseColumnNames="dossier_id"
+                                 baseTableName="dossier"
+                                 constraintName="fk_dossier_dossier_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="lotissement"/>
+
+        <addForeignKeyConstraint baseColumnNames="nature_id"
+                                 baseTableName="dossier"
+                                 constraintName="fk_dossier_nature_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="nature"/>
+
+        <addForeignKeyConstraint baseColumnNames="activite_id"
+                                 baseTableName="dossier"
+                                 constraintName="fk_dossier_activite_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="activite"/>
+
+        <addForeignKeyConstraint baseColumnNames="usage_id"
+                                 baseTableName="dossier"
+                                 constraintName="fk_dossier_usage_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="usage"/>
+
+        <addForeignKeyConstraint baseColumnNames="proprietaire_id"
+                                 baseTableName="dossier"
+                                 constraintName="fk_dossier_proprietaire_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="proprietaire"/>
+
+    </changeSet>
+</databaseChangeLog>

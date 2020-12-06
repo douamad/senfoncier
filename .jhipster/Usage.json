@@ -1,0 +1,32 @@
+{
+  "name": "Usage",
+  "fields": [
+    {
+      "fieldName": "code",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "libelle",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "dossier",
+      "otherEntityRelationshipName": "usage",
+      "relationshipName": "dossier"
+    }
+  ],
+  "changelogDate": "20201206162842",
+  "entityTableName": "usage",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

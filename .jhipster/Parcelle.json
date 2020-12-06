@@ -1,0 +1,50 @@
+{
+  "name": "Parcelle",
+  "fields": [
+    {
+      "fieldName": "numSection",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "numeroParcelle",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nicad",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "superfici",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "titreMere",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "titreCree",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "dossier",
+      "otherEntityRelationshipName": "parcelle",
+      "relationshipName": "dossier",
+      "otherEntityField": "id",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20201206163042",
+  "entityTableName": "parcelle",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}
