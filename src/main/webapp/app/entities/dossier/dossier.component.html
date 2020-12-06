@@ -1,0 +1,127 @@
+<div>
+    <h2 id="page-heading">
+        <span>Dossiers</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-dossier" [routerLink]="['/dossier/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span>
+            Create a new Dossier
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="dossiers?.length === 0">
+        <span>No dossiers found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="dossiers && dossiers.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span>ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="numero"><span>Numero</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="montantLoyer"><span>Montant Loyer</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="superficieBatie"><span>Superficie Batie</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="coeffCorrectifBatie"><span>Coeff Correctif Batie</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="valeurBatie"><span>Valeur Batie</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lineaireCloture"><span>Lineaire Cloture</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="coeffCloture"><span>Coeff Cloture</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="valeurCloture"><span>Valeur Cloture</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="amenagementSpaciaux"><span>Amenagement Spaciaux</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="valeurAmenagement"><span>Valeur Amenagement</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="valeurVenale"><span>Valeur Venale</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="valeurLocativ"><span>Valeur Locativ</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="paysAdresse"><span>Pays Adresse</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="villeAdresse"><span>Ville Adresse</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dossierId"><span>Dossier</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="natureId"><span>Nature</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="activiteId"><span>Activite</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="usageId"><span>Usage</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="proprietaireId"><span>Proprietaire</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let dossier of dossiers ;trackBy: trackId">
+                    <td><a [routerLink]="['/dossier', dossier.id, 'view']">{{ dossier.id }}</a></td>
+                    <td>{{ dossier.numero }}</td>
+                    <td>{{ dossier.montantLoyer }}</td>
+                    <td>{{ dossier.superficieBatie }}</td>
+                    <td>{{ dossier.coeffCorrectifBatie }}</td>
+                    <td>{{ dossier.valeurBatie }}</td>
+                    <td>{{ dossier.lineaireCloture }}</td>
+                    <td>{{ dossier.coeffCloture }}</td>
+                    <td>{{ dossier.valeurCloture }}</td>
+                    <td>{{ dossier.amenagementSpaciaux }}</td>
+                    <td>{{ dossier.valeurAmenagement }}</td>
+                    <td>{{ dossier.valeurVenale }}</td>
+                    <td>{{ dossier.valeurLocativ }}</td>
+                    <td>{{ dossier.paysAdresse }}</td>
+                    <td>{{ dossier.villeAdresse }}</td>
+                    <td>
+                        <div *ngIf="dossier.dossierId">
+                            <a [routerLink]="['/lotissement', dossier.dossierId , 'view']" >{{ dossier.dossierId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="dossier.natureId">
+                            <a [routerLink]="['/nature', dossier.natureId , 'view']" >{{ dossier.natureId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="dossier.activiteId">
+                            <a [routerLink]="['/activite', dossier.activiteId , 'view']" >{{ dossier.activiteId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="dossier.usageId">
+                            <a [routerLink]="['/usage', dossier.usageId , 'view']" >{{ dossier.usageId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="dossier.proprietaireId">
+                            <a [routerLink]="['/proprietaire', dossier.proprietaireId , 'view']" >{{ dossier.proprietaireId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/dossier', dossier.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/dossier', dossier.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(dossier)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="dossiers && dossiers.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

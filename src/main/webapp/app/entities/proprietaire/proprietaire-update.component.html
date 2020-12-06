@@ -1,0 +1,98 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-proprietaire-heading">Create or edit a Proprietaire</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_prenom">Prenom</label>
+                    <input type="text" class="form-control" name="prenom" id="field_prenom"
+                           formControlName="prenom"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_nom">Nom</label>
+                    <input type="text" class="form-control" name="nom" id="field_nom"
+                           formControlName="nom"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_raisonSocial">Raison Social</label>
+                    <input type="text" class="form-control" name="raisonSocial" id="field_raisonSocial"
+                           formControlName="raisonSocial"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_personneMorale">Personne Morale</label>
+                    <input type="checkbox" class="form-control" name="personneMorale" id="field_personneMorale"
+                           formControlName="personneMorale"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_lieuNaissance">Lieu Naissance</label>
+                    <input type="text" class="form-control" name="lieuNaissance" id="field_lieuNaissance"
+                           formControlName="lieuNaissance"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_numCNIi">Num CN Ii</label>
+                    <input type="text" class="form-control" name="numCNIi" id="field_numCNIi"
+                           formControlName="numCNIi"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_ninea">Ninea</label>
+                    <input type="text" class="form-control" name="ninea" id="field_ninea"
+                           formControlName="ninea"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_adresse">Adresse</label>
+                    <input type="text" class="form-control" name="adresse" id="field_adresse"
+                           formControlName="adresse"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_telephone">Telephone</label>
+                    <input type="text" class="form-control" name="telephone" id="field_telephone"
+                           formControlName="telephone"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_telephone2">Telephone 2</label>
+                    <input type="text" class="form-control" name="telephone2" id="field_telephone2"
+                           formControlName="telephone2"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_telephone3">Telephone 3</label>
+                    <input type="text" class="form-control" name="telephone3" id="field_telephone3"
+                           formControlName="telephone3"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_aquisition">Aquisition</label>
+                    <input type="text" class="form-control" name="aquisition" id="field_aquisition"
+                           formControlName="aquisition"/>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

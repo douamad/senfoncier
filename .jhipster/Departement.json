@@ -1,0 +1,39 @@
+{
+  "name": "Departement",
+  "fields": [
+    {
+      "fieldName": "code",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "libelle",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "arrondissement",
+      "otherEntityRelationshipName": "departement",
+      "relationshipName": "arrondissement"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "region",
+      "otherEntityRelationshipName": "departement",
+      "relationshipName": "region",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20201206161648",
+  "entityTableName": "departement",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

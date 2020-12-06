@@ -1,0 +1,118 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="dossier">
+            <h2><span>Dossier</span> {{ dossier.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Numero</span></dt>
+                <dd>
+                    <span>{{ dossier.numero }}</span>
+                </dd>
+                <dt><span>Montant Loyer</span></dt>
+                <dd>
+                    <span>{{ dossier.montantLoyer }}</span>
+                </dd>
+                <dt><span>Superficie Batie</span></dt>
+                <dd>
+                    <span>{{ dossier.superficieBatie }}</span>
+                </dd>
+                <dt><span>Coeff Correctif Batie</span></dt>
+                <dd>
+                    <span>{{ dossier.coeffCorrectifBatie }}</span>
+                </dd>
+                <dt><span>Valeur Batie</span></dt>
+                <dd>
+                    <span>{{ dossier.valeurBatie }}</span>
+                </dd>
+                <dt><span>Lineaire Cloture</span></dt>
+                <dd>
+                    <span>{{ dossier.lineaireCloture }}</span>
+                </dd>
+                <dt><span>Coeff Cloture</span></dt>
+                <dd>
+                    <span>{{ dossier.coeffCloture }}</span>
+                </dd>
+                <dt><span>Valeur Cloture</span></dt>
+                <dd>
+                    <span>{{ dossier.valeurCloture }}</span>
+                </dd>
+                <dt><span>Amenagement Spaciaux</span></dt>
+                <dd>
+                    <span>{{ dossier.amenagementSpaciaux }}</span>
+                </dd>
+                <dt><span>Valeur Amenagement</span></dt>
+                <dd>
+                    <span>{{ dossier.valeurAmenagement }}</span>
+                </dd>
+                <dt><span>Valeur Venale</span></dt>
+                <dd>
+                    <span>{{ dossier.valeurVenale }}</span>
+                </dd>
+                <dt><span>Valeur Locativ</span></dt>
+                <dd>
+                    <span>{{ dossier.valeurLocativ }}</span>
+                </dd>
+                <dt><span>Pays Adresse</span></dt>
+                <dd>
+                    <span>{{ dossier.paysAdresse }}</span>
+                </dd>
+                <dt><span>Ville Adresse</span></dt>
+                <dd>
+                    <span>{{ dossier.villeAdresse }}</span>
+                </dd>
+                <dt><span>Parcelle</span></dt>
+                <dd>
+                    <span *ngFor="let parcelle of dossier.parcelles; let last = last">
+                        <a [routerLink]="['/parcelle', parcelle?.id, 'view']">{{ parcelle.id }}</a>{{ last ? '' : ', ' }}
+                    </span>
+                </dd>
+                <dt><span>Dossier</span></dt>
+                <dd>
+                    <div *ngIf="dossier.dossierId">
+                        <a [routerLink]="['/lotissement', dossier.dossierId, 'view']">{{ dossier.dossierId }}</a>
+                    </div>
+                </dd>
+                <dt><span>Nature</span></dt>
+                <dd>
+                    <div *ngIf="dossier.natureId">
+                        <a [routerLink]="['/nature', dossier.natureId, 'view']">{{ dossier.natureId }}</a>
+                    </div>
+                </dd>
+                <dt><span>Activite</span></dt>
+                <dd>
+                    <div *ngIf="dossier.activiteId">
+                        <a [routerLink]="['/activite', dossier.activiteId, 'view']">{{ dossier.activiteId }}</a>
+                    </div>
+                </dd>
+                <dt><span>Usage</span></dt>
+                <dd>
+                    <div *ngIf="dossier.usageId">
+                        <a [routerLink]="['/usage', dossier.usageId, 'view']">{{ dossier.usageId }}</a>
+                    </div>
+                </dd>
+                <dt><span>Proprietaire</span></dt>
+                <dd>
+                    <div *ngIf="dossier.proprietaireId">
+                        <a [routerLink]="['/proprietaire', dossier.proprietaireId, 'view']">{{ dossier.proprietaireId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/dossier', dossier.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

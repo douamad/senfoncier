@@ -1,0 +1,40 @@
+{
+  "name": "CategorieCloture",
+  "fields": [
+    {
+      "fieldName": "libelle",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "prixMetreCare",
+      "fieldType": "Double"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "dossier",
+      "otherEntityRelationshipName": "categoriteCloture",
+      "relationshipName": "dossier",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "dossier",
+      "otherEntityRelationshipName": "categorieCloture",
+      "relationshipName": "dossier",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20201206162748",
+  "entityTableName": "categorie_cloture",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

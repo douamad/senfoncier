@@ -1,0 +1,39 @@
+{
+  "name": "Quartier",
+  "fields": [
+    {
+      "fieldName": "code",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "libelle",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "lotissement",
+      "otherEntityRelationshipName": "quartier",
+      "relationshipName": "lotissement"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "commune",
+      "otherEntityRelationshipName": "quartier",
+      "relationshipName": "communune",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20201206161948",
+  "entityTableName": "quartier",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

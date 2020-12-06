@@ -14,7 +14,29 @@
     <property name="uuidType" value="uuid" dbms="h2, postgresql"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201206161448_added_entity_Dossier.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201206161548_added_entity_Region.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201206161648_added_entity_Departement.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201206161748_added_entity_Arrondissement.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201206161848_added_entity_Commune.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201206161948_added_entity_Quartier.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201206162048_added_entity_Lotissement.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201206162148_added_entity_Nature.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201206162248_added_entity_Usage.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201206162348_added_entity_Activite.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201206162448_added_entity_Parcelle.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201206162548_added_entity_Proprietaire.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201206162648_added_entity_CategorieBatie.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201206162748_added_entity_CategorieCloture.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20201206161448_added_entity_constraints_Dossier.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201206161648_added_entity_constraints_Departement.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201206161748_added_entity_constraints_Arrondissement.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201206161848_added_entity_constraints_Commune.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201206161948_added_entity_constraints_Quartier.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201206162048_added_entity_constraints_Lotissement.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201206162648_added_entity_constraints_CategorieBatie.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201206162748_added_entity_constraints_CategorieCloture.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>
