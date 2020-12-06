@@ -1,0 +1,110 @@
+
+entity Dossier {
+	numero String,
+    montantLoyer Double,
+    superficieBatie Double,
+    coeffCorrectifBatie Double,
+    valeurBatie Double,
+    lineaireCloture Double,
+    coeffCloture Double,
+    valeurCloture Double,
+    amenagementSpaciaux String,
+    valeurAmenagement Double,
+    valeurVenale Double,
+    valeurLocativ String,
+    paysAdresse String,
+    villeAdresse String
+}
+
+entity Region{
+	code String,
+    libelle String
+}
+entity Departement{
+	code String,
+    libelle String
+}
+entity Arrondissement{
+	code String,
+    libelle String
+}
+entity Commune{
+	code String,
+    libelle String
+}
+entity Quartier{
+	code String,
+    libelle String
+}
+entity Lotissement{
+	code String,
+    libelle String
+}
+entity Nature{
+	code String,
+    libelle String
+}
+entity Usage{
+	code String,
+    libelle String
+}
+entity Activite{
+	code String,
+    libelle String
+}
+entity Parcelle{
+	numSection String,
+    numeroParcelle String,
+    nicad String,
+    superfici Double,
+    titreMere String,
+    titreCree String
+}
+entity Proprietaire{
+	prenom String,
+    nom String,
+    raisonSocial String,
+    personneMorale Boolean,
+    lieuNaissance String,
+    numCNIi String,
+    ninea String,
+    adresse String,
+    telephone String
+    telephone2 String
+    telephone3 String,
+    aquisition String
+}
+
+entity CategorieBatie{
+	libelle String,
+    prixMetreCare Double
+}
+
+entity CategorieCloture{
+	libelle String,
+    prixMetreCare Double
+}
+relationship OneToMany{
+	Dossier to CategorieBatie,    
+	Dossier to CategorieCloture,    
+	Dossier to CategorieCloture,
+    Lotissement to Dossier,
+    Nature to Dossier,
+    Activite to Dossier,
+    Usage to Dossier,
+    Region to Departement,
+    Departement to Arrondissement,
+    Arrondissement to Commune,
+    Commune to Quartier,
+    Quartier to Lotissement,
+    Proprietaire to Dossier
+}
+
+relationship ManyToMany{
+	Produit{complement} to ComplementProduit
+    Message{destinataire} to User
+    Dossier{parcelle} to Parcelle
+}
+paginate all with pagination
+service all with serviceImpl
+dto all with mapstruct
