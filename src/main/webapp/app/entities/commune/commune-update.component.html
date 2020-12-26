@@ -27,7 +27,7 @@
                     <label class="form-control-label" for="field_arrondissement">Arrondissement</label>
                     <select class="form-control" id="field_arrondissement" name="arrondissement" formControlName="arrondissementId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="arrondissementOption.id" *ngFor="let arrondissementOption of arrondissements; trackBy: trackById">{{ arrondissementOption.id }}</option>
+                        <option [ngValue]="arrondissementOption.id" *ngFor="let arrondissementOption of arrondissements; trackBy: trackById">{{ arrondissementOption.code }}: {{ arrondissementOption.libelle }}</option>
                     </select>
                 </div>
             </div>

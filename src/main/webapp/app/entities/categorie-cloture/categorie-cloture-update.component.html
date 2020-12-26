@@ -22,14 +22,6 @@
                     <input type="number" class="form-control" name="prixMetreCare" id="field_prixMetreCare"
                            formControlName="prixMetreCare"/>
                 </div>
-
-                <div class="form-group">
-                    <label class="form-control-label" for="field_dossier">Dossier</label>
-                    <select class="form-control" id="field_dossier" name="dossier" formControlName="dossierId">
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="dossierOption.id" *ngFor="let dossierOption of dossiers; trackBy: trackById">{{ dossierOption.id }}</option>
-                    </select>
-                </div>
             </div>
 
             <div>

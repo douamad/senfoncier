@@ -1,7 +1,7 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
-            <h2 id="jhi-dossier-heading">Create or edit a Dossier</h2>
+            <h2 id="jhi-dossier-heading">Créer un nouveau dossier</h2>
 
             <div>
                 <jhi-alert-error></jhi-alert-error>
@@ -98,7 +98,7 @@
                 <div class="form-group">
                     <label for="field_parcelles">Parcelle</label>
                     <select class="form-control" id="field_parcelles" multiple name="parcelles" formControlName="parcelles">
-                        <option [ngValue]="getSelected(editForm.get('parcelles')!.value, parcelleOption)" *ngFor="let parcelleOption of parcelles; trackBy: trackById">{{ parcelleOption.id }}</option>
+                        <option [ngValue]="getSelected(editForm.get('parcelles')!.value, parcelleOption)" *ngFor="let parcelleOption of parcelles; trackBy: trackById">N° {{ parcelleOption.numeroParcelle }}</option>
                     </select>
                 </div>
 
@@ -106,7 +106,7 @@
                     <label class="form-control-label" for="field_dossier">Dossier</label>
                     <select class="form-control" id="field_dossier" name="dossier" formControlName="dossierId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="lotissementOption.id" *ngFor="let lotissementOption of lotissements; trackBy: trackById">{{ lotissementOption.id }}</option>
+                        <option [ngValue]="lotissementOption.id" *ngFor="let lotissementOption of lotissements; trackBy: trackById">{{ lotissementOption.code }}</option>
                     </select>
                 </div>
 
@@ -114,7 +114,7 @@
                     <label class="form-control-label" for="field_nature">Nature</label>
                     <select class="form-control" id="field_nature" name="nature" formControlName="natureId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="natureOption.id" *ngFor="let natureOption of natures; trackBy: trackById">{{ natureOption.id }}</option>
+                        <option [ngValue]="natureOption.id" *ngFor="let natureOption of natures; trackBy: trackById">{{ natureOption.code }}</option>
                     </select>
                 </div>
 
@@ -122,7 +122,7 @@
                     <label class="form-control-label" for="field_activite">Activite</label>
                     <select class="form-control" id="field_activite" name="activite" formControlName="activiteId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="activiteOption.id" *ngFor="let activiteOption of activites; trackBy: trackById">{{ activiteOption.id }}</option>
+                        <option [ngValue]="activiteOption.id" *ngFor="let activiteOption of activites; trackBy: trackById">{{ activiteOption.code }}</option>
                     </select>
                 </div>
 
@@ -130,7 +130,7 @@
                     <label class="form-control-label" for="field_usage">Usage</label>
                     <select class="form-control" id="field_usage" name="usage" formControlName="usageId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="usageOption.id" *ngFor="let usageOption of usages; trackBy: trackById">{{ usageOption.id }}</option>
+                        <option [ngValue]="usageOption.id" *ngFor="let usageOption of usages; trackBy: trackById">{{ usageOption.code }}</option>
                     </select>
                 </div>
 
@@ -138,7 +138,7 @@
                     <label class="form-control-label" for="field_proprietaire">Proprietaire</label>
                     <select class="form-control" id="field_proprietaire" name="proprietaire" formControlName="proprietaireId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="proprietaireOption.id" *ngFor="let proprietaireOption of proprietaires; trackBy: trackById">{{ proprietaireOption.id }}</option>
+                        <option [ngValue]="proprietaireOption.id" *ngFor="let proprietaireOption of proprietaires; trackBy: trackById">{{ proprietaireOption.prenom }} {{ proprietaireOption.nom }}</option>
                     </select>
                 </div>
             </div>
